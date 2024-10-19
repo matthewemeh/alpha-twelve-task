@@ -1,0 +1,253 @@
+:root {
+  --white: #fcf7ff;
+  --primary: #8576ff;
+  --radical-red: #f43f5e;
+  --primary-dark: #484554;
+  --primary-select: #ada9bb;
+  --primary-select-dark: #6a6676;
+
+  --tuna: #383544;
+  --lynch: #64748b;
+  --azure: #3b82f6;
+  --meadow: #10b981;
+  --zumthor: #e2e8f0;
+  --progress: #dbeafe;
+  --success: #d1fae5;
+  --woodsmoke: #141414;
+  --cadet-grey: #94a3b8;
+  --link-water: #cbd5e1;
+  --blue-chalk: #f5ebff;
+  --white-lilac: #f2f2f7;
+  --athens-gray: #f1f5f9;
+  --progress-dark: #77b1ff;
+  --success-dark: #65ddb5;
+  --pickled-bluewood: #334155;
+
+  --default-transition: all 400ms ease-in-out;
+}
+
+body {
+  font-weight: 400;
+  transition: var(--default-transition);
+}
+
+h1 {
+  font-weight: 400;
+  line-height: 20px;
+  font-size: 1.375rem;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-weight: 500;
+  line-height: 12px;
+  font-size: 1.125rem;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-weight: 500;
+  line-height: 16px;
+  font-size: 1.125rem;
+  margin-bottom: 8px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.toolbar {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  justify-content: space-between;
+  color: var(--pickled-bluewood);
+}
+
+.toolbar :is(.left, .right) {
+  height: inherit;
+  display: flex;
+  gap: 8px;
+}
+
+.searchbar {
+  height: inherit;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 2px;
+  border: 1px solid var(--zumthor);
+}
+
+.searchbar .icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchbar input {
+  line-height: 20px;
+  font-size: 0.875rem;
+  color: var(--pickled-bluewood);
+}
+
+.searchbar input::placeholder {
+  color: var(--link-water);
+}
+
+.results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  line-height: 20px;
+  font-size: 0.875rem;
+}
+
+#main-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.dropdown {
+  height: inherit;
+  /* overflow: hidden; */
+  position: relative;
+}
+
+.dropdown > .btn {
+  height: inherit;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 2px;
+  color: var(--pickled-bluewood);
+  border: 1px solid var(--zumthor);
+}
+
+.dropdown :is(.text, .dropdown-item) {
+  flex: 1 0;
+  line-height: 20px;
+  font-size: 0.875rem;
+}
+
+.dropdown .caret {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown .caret path {
+  stroke: currentColor;
+}
+
+.dropdown .content {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  min-width: 100%;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 300px;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  background-color: #fff;
+  transition: opacity ease-in-out 300ms;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+}
+
+.dropdown[aria-expanded='false'] .content {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#items-length-filter.dropdown .content {
+  top: unset;
+  bottom: 100%;
+}
+
+.dropdown-item {
+  padding: 8px;
+  flex: 1 0;
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 20px;
+  font-size: 0.875rem;
+}
+
+#more {
+  width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 2px;
+  border: 1px solid var(--zumthor);
+}
+
+#export {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 2px;
+  color: var(--pickled-bluewood);
+  border: 1px solid var(--zumthor);
+}
+
+#export .text {
+  line-height: 20px;
+  font-size: 0.875rem;
+}
+
+:is(#export, #more) path {
+  stroke: var(--woodsmoke);
+}
+
+main {
+  width: 76.39%;
+  padding: 40px 0 64px 24px;
+  transition: width ease-in-out 400ms;
+}
+
+/* dark mode styling */
+
+body[data-theme='dark'] {
+  color: #ffffff;
+  background-color: var(--tuna);
+}
+
+body[data-theme='dark'] :is(.searchbar, #more, #export, .dropdown .btn) {
+  color: var(--white);
+  border-color: var(--primary-dark);
+  background-color: var(--primary-dark);
+}
+
+body[data-theme='dark'] .searchbar input {
+  color: var(--white);
+}
+
+body[data-theme='dark'] :is(#more, #export) path {
+  stroke: currentColor;
+}
+
+body[data-theme='dark'] .results {
+  color: #ffffff;
+}
+
+body[data-theme='dark'] .sort {
+  color: var(--white);
+}

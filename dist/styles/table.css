@@ -1,0 +1,118 @@
+table {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+#events thead {
+  line-height: 16px;
+  font-size: 0.75rem;
+  color: var(--lynch);
+  background-color: var(--athens-gray);
+}
+
+#events tr {
+  height: 48px;
+  color: var(--pickled-bluewood);
+}
+
+#events tr .status {
+  position: relative;
+  display: flex;
+  height: 24px;
+  gap: 4px;
+  align-items: center;
+  padding: 4px 8px 4px 22px;
+  border-radius: 100px;
+  line-height: 16px;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
+#events tr[data-status='completed'] .status {
+  color: var(--meadow);
+  background-color: var(--success);
+}
+
+#events tr[data-status='in progress'] .status {
+  color: var(--azure);
+  background-color: var(--progress);
+}
+
+#events tr[data-status='completed'] .status::before {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--meadow);
+  position: absolute;
+  content: '';
+  top: 55%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+#events tr[data-status='in progress'] .status::before {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--azure);
+  position: absolute;
+  content: '';
+  top: 55%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+tr {
+  display: flex;
+}
+
+th {
+  font-weight: 600;
+}
+
+td {
+  line-height: 20px;
+  font-size: 0.875rem;
+}
+
+th,
+td {
+  flex: 1 0;
+  display: flex;
+  align-items: center;
+  padding-inline: 16px;
+}
+
+/* dark mode styling */
+
+body[data-theme='dark'] #events thead {
+  background-color: var(--primary-select-dark);
+}
+
+body[data-theme='dark'] #events tr {
+  color: #ffffff;
+}
+
+body[data-theme='dark'] #events tbody tr {
+  background-color: var(--primary-dark);
+}
+
+body[data-theme='dark'] #events tr[data-status='completed'] .status {
+  color: var(--success-dark);
+  background-color: transparent;
+  border: 1px solid currentColor;
+}
+
+body[data-theme='dark'] #events tr[data-status='completed'] .status::before {
+  background-color: var(--success-dark);
+}
+
+body[data-theme='dark'] #events tr[data-status='in progress'] .status {
+  color: var(--progress-dark);
+  background-color: transparent;
+  border: 1px solid currentColor;
+}
+
+body[data-theme='dark'] #events tr[data-status='in progress'] .status::before {
+  background-color: var(--progress-dark);
+}
