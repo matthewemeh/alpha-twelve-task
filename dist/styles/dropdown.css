@@ -1,0 +1,88 @@
+.dropdown {
+  height: inherit;
+  position: relative;
+}
+
+.dropdown :is(.text, .dropdown-item) {
+  line-height: 20px;
+  font-size: 0.875rem;
+}
+
+.dropdown > .btn {
+  height: inherit;
+}
+
+.dropdown .caret {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown .caret path {
+  stroke: currentColor;
+}
+
+.dropdown .content {
+  z-index: 1;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  min-width: 100%;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 300px;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  background-color: #fff;
+  transition: opacity ease-in-out 300ms;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+}
+
+.dropdown[aria-expanded='false'] .content {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#items-length-filter.dropdown .content {
+  top: unset;
+  bottom: 100%;
+}
+
+.dropdown-item {
+  padding: 8px;
+  flex: 1 0;
+}
+
+#export {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 2px;
+  color: var(--pickled-bluewood);
+  border: 1px solid var(--zumthor);
+}
+
+#export .text {
+  line-height: 20px;
+  font-size: 0.875rem;
+}
+
+:is(#export, #more) path {
+  stroke: var(--woodsmoke);
+}
+
+@media screen and (max-width: 600px) {
+  .dropdown {
+    height: 36px;
+  }
+
+  .dropdown > .btn {
+    width: 100%;
+  }
+}

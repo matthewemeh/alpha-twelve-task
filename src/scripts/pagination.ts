@@ -53,9 +53,9 @@ function loadPaginationNumbers() {
 
   Array.from({ length: pages }, (_, index) => {
     paginationNumbersContainer.innerHTML += `
-        <button onclick="update(${index})" class="pagination-control-number ${
+      <button onclick="update(${index})" class="pagination-control-number ${
       index === 0 && 'selected'
-    }">${index + 1}   </button>
+    }">${index + 1}</button>
     `;
   });
 }

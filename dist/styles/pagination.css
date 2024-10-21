@@ -103,3 +103,15 @@ body[data-theme='dark'] .pagination-control-btn {
   border-color: var(--primary-dark);
   background-color: var(--primary-dark);
 }
+
+@media screen and (max-width: 600px) {
+  .pagination {
+    width: 100%;
+    padding-inline: 20px;
+    margin-inline: -20px;
+  }
+
+  .items-control > .text {
+    display: none;
+  }
+}

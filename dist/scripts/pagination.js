@@ -37,7 +37,7 @@ function loadPaginationNumbers() {
     const pages = Math.ceil(filteredEvents.length / itemsPerRow);
     Array.from({ length: pages }, (_, index) => {
         paginationNumbersContainer.innerHTML += `
-        <button onclick="update(${index})" class="pagination-control-number ${index === 0 && 'selected'}">${index + 1}   </button>
+      <button onclick="update(${index})" class="pagination-control-number ${index === 0 && 'selected'}">${index + 1}</button>
     `;
     });
 }

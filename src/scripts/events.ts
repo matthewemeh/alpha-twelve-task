@@ -1,7 +1,8 @@
 interface EventType {
   name: string;
   date: string;
-  speaker: string;
+  attendees: number;
+  speakers: string[];
   status: 'completed' | 'in progress';
 }
 
@@ -9,127 +10,148 @@ const events: EventType[] = [
   {
     date: '2024-10-15',
     status: 'completed',
-    speaker: 'Jane Doe',
+    attendees: 300,
+    speakers: ['Jane Doe', 'John Wilde', 'Danny Murphy'],
     name: 'Cloud Innovation Summit',
   },
   {
     date: '2024-11-05',
     status: 'in progress',
-    speaker: 'Dr. Peter Smith',
+    attendees: 200,
+    speakers: ['Dr. Peter Smith', 'John Wilde', 'Danny Murphy'],
     name: 'Blockchain Revolution Conference',
   },
   {
     date: '2024-12-01',
     status: 'completed',
-    speaker: 'Dr. Aisha Malik',
+    attendees: 150,
+    speakers: ['Dr. Aisha Malik', 'John Wilde', 'Danny Murphy'],
     name: 'AI in Healthcare Symposium',
   },
   {
     date: '2024-10-25',
     status: 'completed',
-    speaker: 'John Lee',
+    attendees: 30,
+    speakers: ['John Lee', 'John Wilde', 'Danny Murphy'],
     name: 'Future of Fintech Forum',
   },
   {
     date: '2024-11-12',
     status: 'completed',
-    speaker: 'Rachel Moore',
+    attendees: 500,
+    speakers: ['Rachel Moore', 'John Wilde', 'Danny Murphy'],
     name: 'Data Analytics in Business',
   },
   {
     date: '2024-09-28',
     status: 'completed',
-    speaker: 'Prof. Alan Green',
+    attendees: 600,
+    speakers: ['Prof. Alan Green', 'John Wilde', 'Danny Murphy'],
     name: 'Sustainable Energy Expo',
   },
   {
     date: '2024-10-10',
     status: 'in progress',
-    speaker: 'Kevin Adams',
+    attendees: 6000,
+    speakers: ['Kevin Adams', 'John Wilde', 'Danny Murphy'],
     name: 'Web3 Interfaces Workshop',
   },
   {
     date: '2024-09-30',
     status: 'in progress',
-    speaker: 'Guest Panel',
+    attendees: 30,
+    speakers: ['Guest Panel', 'John Wilde', 'Danny Murphy'],
     name: 'Tech Safari Mixer',
   },
   {
     date: '2024-11-19',
     status: 'completed',
-    speaker: 'Emily Zhang',
+    attendees: 760,
+    speakers: ['Emily Zhang', 'John Wilde', 'Danny Murphy'],
     name: 'Cybersecurity for Startups',
   },
   {
     date: '2024-10-18',
     status: 'in progress',
-    speaker: 'Dr. Maria Hernandez',
+    attendees: 764,
+    speakers: ['Dr. Maria Hernandez', 'John Wilde', 'Danny Murphy'],
     name: 'Smart Cities Forum',
   },
   {
     date: '2024-10-15',
     status: 'completed',
-    speaker: 'Jane Doe',
+    attendees: 300,
+    speakers: ['Jane Doe', 'John Wilde', 'Danny Murphy'],
     name: 'Cloud Innovation Summit',
   },
   {
     date: '2024-12-01',
     status: 'completed',
-    speaker: 'Dr. Aisha Malik',
+    attendees: 300,
+    speakers: ['Dr. Aisha Malik', 'John Wilde', 'Danny Murphy'],
     name: 'AI in Healthcare Symposium',
   },
   {
     date: '2024-11-05',
     status: 'in progress',
-    speaker: 'Dr. Peter Smith',
+    attendees: 300,
+    speakers: ['Dr. Peter Smith', 'John Wilde', 'Danny Murphy'],
     name: 'Blockchain Revolution Conference',
   },
   {
     date: '2024-10-25',
     status: 'completed',
-    speaker: 'John Lee',
+    attendees: 300,
+    speakers: ['John Lee', 'John Wilde', 'Danny Murphy'],
     name: 'Future of Fintech Forum',
   },
   {
     date: '2024-11-12',
     status: 'completed',
-    speaker: 'Rachel Moore',
+    attendees: 300,
+    speakers: ['Rachel Moore', 'John Wilde', 'Danny Murphy'],
     name: 'Data Analytics in Business',
   },
   {
     date: '2024-09-28',
     status: 'completed',
-    speaker: 'Prof. Alan Green',
+    attendees: 503,
+    speakers: ['Prof. Alan Green', 'John Wilde', 'Danny Murphy'],
     name: 'Sustainable Energy Expo',
   },
   {
     date: '2024-10-10',
     status: 'in progress',
-    speaker: 'Kevin Adams',
+    attendees: 300,
+    speakers: ['Kevin Adams', 'John Wilde', 'Danny Murphy'],
     name: 'Web3 Interfaces Workshop',
   },
   {
     date: '2024-11-19',
     status: 'completed',
-    speaker: 'Emily Zhang',
+    attendees: 90,
+    speakers: ['Emily Zhang', 'John Wilde', 'Danny Murphy'],
     name: 'Cybersecurity for Startups',
   },
   {
     date: '2024-10-18',
     status: 'in progress',
-    speaker: 'Dr. Maria Hernandez',
+    attendees: 300,
+    speakers: ['Dr. Maria Hernandez', 'John Wilde', 'Danny Murphy'],
     name: 'Smart Cities Forum',
   },
   {
     date: '2024-09-30',
     status: 'in progress',
-    speaker: 'Guest Panel',
+    attendees: 101,
+    speakers: ['Guest Panel', 'John Wilde', 'Danny Murphy'],
     name: 'Tech Safari Mixer',
   },
   {
     date: '2024-09-30',
     status: 'in progress',
-    speaker: 'Guest Panel',
+    attendees: 311,
+    speakers: ['Guest Panel', 'John Wilde', 'Danny Murphy'],
     name: 'Tech Safari Mixer',
   },
 ];
@@ -143,9 +165,38 @@ function resetFilter() {
 }
 
 function filter(field: keyof EventType, value: string) {
-  filteredEvents = events.filter(event => event[field] === value);
+  filteredEvents = events.filter(event => {
+    const eventKeyValue = event[field];
+    if (Array.isArray(eventKeyValue)) {
+      return eventKeyValue.includes(value);
+    }
+    return eventKeyValue === value;
+  });
   loadPaginationNumbers();
   update(0);
+}
+
+function showEventModal() {
+  const modal = document.querySelector('.modal') as HTMLDivElement;
+  removeClass(modal, 'invisible');
+}
+
+function showEvent(name: string, speakers: string[], date: string, attendees: number) {
+  document.querySelector('.event-name')!.textContent = name;
+  document.querySelector('.event-date')!.textContent = date;
+  document.querySelector('.event-info')!.innerHTML = `${
+    speakers.length
+  } Guest Speakers: ${speakers.join(', ')}.<br />${attendees} Attendees`;
+  showOverlay();
+  showEventModal();
+}
+
+function expandAccordion(index: number) {
+  const accordions = document.querySelectorAll<HTMLTableRowElement>('.accordion');
+  accordions.forEach(accordion => {
+    accordion.setAttribute('aria-expanded', 'false');
+  });
+  accordions.item(index).setAttribute('aria-expanded', 'true');
 }
 
 function loadEvents() {
@@ -153,14 +204,34 @@ function loadEvents() {
   eventsTableBody.innerHTML = '';
   filteredEvents
     .slice(itemsPerRow * startIndex, itemsPerRow * startIndex + itemsPerRow)
-    .forEach(({ date, name, speaker, status }) => {
+    .forEach((eventItem, index) => {
+      const { date, name, speakers, status, attendees } = eventItem;
       eventsTableBody.innerHTML += `
-            <tr data-status="${status}">
-                <td>${name}</td>
-                <td>${date}</td>
-                <td>${speaker}</td>
-                <td><div class="status">${status}</div></td>
-            </tr>
+        <tr class="default" data-status="${status}" onclick="showEvent('${name}', [${speakers.map(
+        speaker => `'${speaker}'`
+      )}], '${date}', ${attendees})">
+          <td>${name}</td>
+          <td>${date}</td>
+          <td>${speakers[0]}</td>
+          <td><div class="status">${status}</div></td>
+        </tr>
+        <tr class="accordion" aria-expanded="false" data-status="${status}" onclick="expandAccordion(${index})">
+          <td>
+            <div class="top">
+              <button class="chevron">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.75 8.75L14.25 12L10.75 15.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <p class="text">${name}</p>
+              <div class="status">${status}</div>
+            </div>
+            <div class="bottom">
+              <p>${speakers[0]}</p>
+              <p>${date}</p>
+            </div>
+          </td>
+        </tr>
       `;
     });
 

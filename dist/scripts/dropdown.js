@@ -18,6 +18,11 @@ function updateDropdownText(dropdownID, newText) {
 function loadDropdowns() {
     const dropdownButtons = [
         {
+            title: 'Date',
+            id: 'date-filter',
+            options: [],
+        },
+        {
             title: 'Status',
             id: 'status-filter',
             options: [
@@ -31,9 +36,9 @@ function loadDropdowns() {
             id: 'name-filter',
             options: [
                 { label: 'All', onclick: 'resetFilter()' },
-                ...[...new Set(filteredEvents.map(({ speaker }) => speaker))].map(speaker => ({
+                ...[...new Set(filteredEvents.map(({ speakers: [mainSpeaker] }) => mainSpeaker))].map(speaker => ({
                     label: speaker,
-                    onclick: `filter('speaker','${speaker}')`,
+                    onclick: `filter('speakers','${speaker}')`,
                 })),
             ],
         },
@@ -68,28 +73,15 @@ function loadDropdowns() {
             optionButtons += `<button class="dropdown-item" onclick="${onclick};closeAllDropdowns()">${label}</button>`;
         });
         dropdown.innerHTML = `
-        <button class="btn" onclick="toggleDropdown('${id}')">
-            <span class="text">${title}</span>
-            <span class="caret">
-                <svg
-                    width="6"
-                    height="5"
-                    fill="none"
-                    viewBox="0 0 6 5"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M5.16665 1.16666L2.99998 3.5L0.833313 1.16666"
-                    />
-                </svg>
-            </span>
-        </button>
-        <div class="content">
-            ${optionButtons}
-        </div>
+      <button class="btn" onclick="toggleDropdown('${id}')">
+        <span class="text">${title}</span>
+        <span class="caret">
+          <svg width="6" height="5" fill="none" viewBox="0 0 6 5" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M5.16665 1.16666L2.99998 3.5L0.833313 1.16666" />
+          </svg>
+        </span>
+      </button>
+      <div class="content">${optionButtons}</div>
     `;
     });
 }

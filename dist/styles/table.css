@@ -1,4 +1,4 @@
-table {
+#events {
   width: 100%;
   margin-bottom: 16px;
 }
@@ -15,7 +15,78 @@ table {
   color: var(--pickled-bluewood);
 }
 
-#events tr .status {
+#events tbody tr {
+  cursor: pointer;
+}
+
+#events tr.accordion {
+  display: none;
+  max-height: 44px;
+  overflow: hidden;
+  height: fit-content;
+  color: var(--pickled-bluewood);
+  transition: var(--default-transition);
+}
+
+#events tr.accordion[aria-expanded='true'] .top {
+  background-color: var(--white-lilac);
+  border-bottom: 1px solid var(--white);
+}
+
+#events tr.accordion[aria-expanded='true'] .bottom {
+  background-color: var(--new-select);
+  border-bottom: 1px solid var(--white);
+}
+
+#events tr.accordion[aria-expanded='true'] {
+  max-height: 300px;
+}
+
+#events tr.accordion td {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+#events tr.accordion .top {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 10px;
+  background-color: #ffffff;
+  transition: var(--default-transition);
+}
+
+#events tr.accordion .chevron {
+  width: 24px;
+  height: 24px;
+  transition: all ease-in-out 200ms;
+}
+
+#events tr.accordion[aria-expanded='true'] .chevron {
+  transform: rotate(90deg);
+}
+
+#events tr.accordion .chevron path {
+  stroke: var(--pickled-bluewood);
+}
+
+#events tr.accordion .top .text {
+  flex: 1 0;
+  line-height: 20px;
+  font-size: 0.875rem;
+}
+
+#events tr.accordion .bottom {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: var(--default-transition);
+}
+
+#events tr.default .status {
   position: relative;
   display: flex;
   height: 24px;
@@ -28,17 +99,36 @@ table {
   text-transform: capitalize;
 }
 
-#events tr[data-status='completed'] .status {
+#events tr.accordion .status {
+  height: 20px;
+  color: #ffffff;
+  line-height: 16px;
+  font-size: 0.75rem;
+  padding: 2px 10px;
+  width: fit-content;
+  border-radius: 30px;
+  text-transform: capitalize;
+}
+
+#events tr.accordion[data-status='completed'] .status {
+  background-color: var(--meadow);
+}
+
+#events tr.accordion[data-status='in progress'] .status {
+  background-color: var(--azure);
+}
+
+#events tr.default[data-status='completed'] .status {
   color: var(--meadow);
   background-color: var(--success);
 }
 
-#events tr[data-status='in progress'] .status {
+#events tr.default[data-status='in progress'] .status {
   color: var(--azure);
   background-color: var(--progress);
 }
 
-#events tr[data-status='completed'] .status::before {
+#events tr.default[data-status='completed'] .status::before {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -50,7 +140,7 @@ table {
   transform: translateY(-50%);
 }
 
-#events tr[data-status='in progress'] .status::before {
+#events tr.default[data-status='in progress'] .status::before {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -97,22 +187,74 @@ body[data-theme='dark'] #events tbody tr {
   background-color: var(--primary-dark);
 }
 
-body[data-theme='dark'] #events tr[data-status='completed'] .status {
+body[data-theme='dark'] #events tr.default[data-status='completed'] .status {
   color: var(--success-dark);
   background-color: transparent;
   border: 1px solid currentColor;
 }
 
-body[data-theme='dark'] #events tr[data-status='completed'] .status::before {
+body[data-theme='dark'] #events tr.default[data-status='completed'] .status::before {
   background-color: var(--success-dark);
 }
 
-body[data-theme='dark'] #events tr[data-status='in progress'] .status {
+body[data-theme='dark'] #events tr.default[data-status='in progress'] .status {
   color: var(--progress-dark);
   background-color: transparent;
   border: 1px solid currentColor;
 }
 
-body[data-theme='dark'] #events tr[data-status='in progress'] .status::before {
+body[data-theme='dark'] #events tr.accordion .top {
+  background-color: var(--primary-dark);
+}
+
+body[data-theme='dark'] #events tr.default[data-status='in progress'] .status::before {
   background-color: var(--progress-dark);
+}
+
+body[data-theme='dark'] #events tr.accordion .chevron path {
+  stroke: var(--white);
+}
+
+body[data-theme='dark'] #events tr.accordion[aria-expanded='true'] .top {
+  border-color: var(--primary-dark);
+  background-color: var(--scarpa-flow);
+}
+
+body[data-theme='dark'] #events tr.accordion[aria-expanded='true'] .bottom {
+  background-color: var(--tuna);
+  border-color: var(--primary-select);
+}
+
+@media screen and (max-width: 600px) {
+  #events {
+    margin-inline: -20px;
+  }
+
+  #events th {
+    flex: none;
+  }
+
+  #events th:not(:first-child, :last-child) {
+    display: none;
+  }
+
+  #events th:first-child {
+    width: 73.87%;
+  }
+
+  #events th:last-child {
+    width: 26.13%;
+  }
+
+  #events td {
+    padding-inline: 0;
+  }
+
+  #events tr.default {
+    display: none;
+  }
+
+  #events tr.accordion {
+    display: block;
+  }
 }
