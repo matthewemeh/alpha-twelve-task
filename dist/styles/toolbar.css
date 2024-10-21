@@ -92,6 +92,7 @@ body[data-theme='dark'] .sort {
   .toolbar {
     height: fit-content;
     margin-bottom: 16px;
+    padding-inline: 20px;
   }
 
   .toolbar,

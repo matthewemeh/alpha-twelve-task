@@ -226,8 +226,7 @@ body[data-theme='dark'] #events tr.accordion[aria-expanded='true'] .bottom {
 }
 
 @media screen and (max-width: 600px) {
-  #events {
-    width: unset;
+  .events-dashboard {
     margin-inline: -20px;
   }
 

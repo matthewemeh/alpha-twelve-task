@@ -309,7 +309,7 @@
         </section>
 
         <h3>Events History</h3>
-        <section>
+        <section class="events-dashboard">
           <div class="toolbar">
             <div class="left">
               <div class="searchbar">
@@ -394,56 +394,56 @@
               <!-- list of events go here -->
             </tbody>
           </table>
-
-          <footer class="pagination">
-            <div class="pagination-controls">
-              <button disabled onclick="previousPage()" class="pagination-control-btn previous">
-                <svg
-                  width="5"
-                  height="8"
-                  fill="none"
-                  viewBox="0 0 5 8"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M4.04167 1.29169L1.125 4.00002L4.04167 6.70835"
-                  />
-                </svg>
-              </button>
-
-              <div class="pagination-control-numbers">
-                <!-- pagination control numbers go here -->
-              </div>
-
-              <button onclick="nextPage()" class="pagination-control-btn next">
-                <svg
-                  width="5"
-                  height="8"
-                  fill="none"
-                  viewBox="0 0 5 8"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M0.75 0.75L4.25 4L0.75 7.25"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            <div class="items-control">
-              <p class="text">Show:</p>
-              <div id="items-length-filter" class="dropdown" aria-expanded="false">
-                <!-- to be loaded by dropdown.js -->
-              </div>
-            </div>
-          </footer>
         </section>
+
+        <footer class="pagination">
+          <div class="pagination-controls">
+            <button disabled onclick="previousPage()" class="pagination-control-btn previous">
+              <svg
+                width="5"
+                height="8"
+                fill="none"
+                viewBox="0 0 5 8"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.04167 1.29169L1.125 4.00002L4.04167 6.70835"
+                />
+              </svg>
+            </button>
+
+            <div class="pagination-control-numbers">
+              <!-- pagination control numbers go here -->
+            </div>
+
+            <button onclick="nextPage()" class="pagination-control-btn next">
+              <svg
+                width="5"
+                height="8"
+                fill="none"
+                viewBox="0 0 5 8"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M0.75 0.75L4.25 4L0.75 7.25"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="items-control">
+            <p class="text">Show:</p>
+            <div id="items-length-filter" class="dropdown" aria-expanded="false">
+              <!-- to be loaded by dropdown.js -->
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
 
