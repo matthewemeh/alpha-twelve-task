@@ -105,12 +105,6 @@ body[data-theme='dark'] .pagination-control-btn {
 }
 
 @media screen and (max-width: 600px) {
-  .pagination {
-    width: 100%;
-    padding-inline: 20px;
-    margin-inline: -20px;
-  }
-
   .items-control > .text {
     display: none;
   }

@@ -184,6 +184,7 @@ body[data-theme='dark'] .chart-container {
 
 @media screen and (max-width: 600px) {
   #main-container {
+    padding: 20px;
     flex-direction: column;
   }
 
@@ -203,8 +204,8 @@ body[data-theme='dark'] .chart-container {
   }
 
   main {
+    padding: 0;
     width: 100%;
-    padding: 0 20px;
   }
 
   .graphical-summary {

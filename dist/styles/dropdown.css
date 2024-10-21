@@ -3,6 +3,10 @@
   position: relative;
 }
 
+.dropdown .text {
+  white-space: nowrap;
+}
+
 .dropdown :is(.text, .dropdown-item) {
   line-height: 20px;
   font-size: 0.875rem;
