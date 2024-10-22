@@ -7,6 +7,9 @@ nav {
   height: 100vh;
   position: sticky;
   top: 0;
+  z-index: 9999;
+  overflow-y: auto;
+  overflow-x: hidden;
   background-color: #ffffff;
   border-right: 1px solid var(--athens-gray);
   transition: width 250ms ease-in-out, background-color 400ms ease-in-out;
@@ -21,11 +24,31 @@ nav {
   padding: 8px;
 }
 
-.nav-header .close-btn {
+nav .close-btn {
   display: none;
 }
 
-nav #logo {
+.hamburger {
+  width: 24px;
+  height: 24px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger path {
+  stroke: var(--lynch);
+}
+
+.nav-links {
+  gap: 8px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: left ease-in-out 400ms;
+}
+
+#logo {
   height: 32px;
 }
 
@@ -93,9 +116,13 @@ nav[data-collapsed='true'] .nav-item path {
 }
 
 nav[data-collapsed='true'] {
-  gap: 16px;
   width: 64px;
   padding-block: 16px;
+  align-items: center;
+}
+
+nav[data-collapsed='true'] .nav-links {
+  gap: 16px;
   align-items: center;
 }
 
@@ -178,8 +205,8 @@ nav[data-collapsed='true'] :is(#user-info .name, #user-info .email) {
 /* dark mode styling */
 
 body[data-theme='dark'] nav {
+  border-color: var(--primary-dark);
   background-color: var(--primary-dark);
-  border-right-color: var(--primary-dark);
 }
 
 body[data-theme='dark'] .nav-item {
@@ -203,30 +230,62 @@ body[data-theme='dark'] nav[data-collapsed='true'] .nav-item path {
   stroke: var(--primary-select);
 }
 
+body[data-theme='dark'] .hamburger path {
+  stroke: var(--white);
+}
+
 @media screen and (max-width: 600px) {
   .nav-item#toggle-collapse {
     display: none;
   }
 
   nav {
-    position: fixed;
-    inset: 0;
-    padding: 0;
-    width: 100vw;
-    z-index: 9999;
-
-    display: none;
+    height: 64px;
+    border-color: transparent;
+    background-color: transparent;
   }
 
-  .nav-header .close-btn {
-    display: block;
+  .nav-links {
+    top: 64px;
+    left: 100%;
+    position: fixed;
+    width: 100vw;
+    padding-top: 8px;
+    height: calc(100vh - 64px);
+    background-color: #ffffff;
   }
 
   .nav-header {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    position: fixed;
     height: 64px;
     padding: 16px;
     margin-bottom: 0;
+    background-color: #ffffff;
     border-bottom: 1px solid var(--zumthor);
+  }
+
+  body[data-theme='dark'] :is(.nav-header, .nav-links) {
+    background-color: var(--primary-dark);
+  }
+
+  body[data-theme='dark'] nav {
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+  nav[data-mobile-nav-opened='true'] .nav-links {
+    left: 0;
+  }
+
+  nav[data-mobile-nav-opened='true'] .close-btn {
+    display: flex;
+  }
+
+  nav[data-mobile-nav-opened='false'] .hamburger {
+    display: flex;
   }
 
   .nav-item {

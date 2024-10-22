@@ -14,3 +14,21 @@ function closeAllModals() {
   });
   hideOverlay();
 }
+
+window.addEventListener('load', () => {
+  const searchbarInput = document.querySelector('.searchbar input') as HTMLInputElement;
+
+  searchbarInput.addEventListener('input', e => {
+    // @ts-ignore
+    const value = e.target!.value.toLowerCase();
+
+    filteredEvents = events.filter(({ speakers, name }) => {
+      return (
+        name.toLowerCase().includes(value) ||
+        speakers.some(speaker => speaker.toLowerCase().includes(value))
+      );
+    });
+    loadPaginationNumbers();
+    update(0);
+  });
+});

@@ -111,3 +111,18 @@ body[data-theme='dark'] :is(.event-name, .event-date, .event-description) {
 body[data-theme='dark'] .modal footer {
   background-color: var(--primary-select);
 }
+
+@media screen and (max-width: 600px) {
+  .modal {
+    width: 100vw;
+  }
+
+  .modal footer,
+  .button-set.right {
+    flex-direction: column;
+  }
+
+  .button-set.left .btn {
+    flex: 1 0;
+  }
+}

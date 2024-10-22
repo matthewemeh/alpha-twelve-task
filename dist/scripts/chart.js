@@ -1,7 +1,12 @@
+let barChart;
+
 function initChart(containerID) {
   const ctx = document.getElementById(containerID);
+  const theme = localStorage.getItem('theme') ?? 'light';
 
-  const barChart = new Chart(ctx, {
+  barChart?.destroy();
+
+  barChart = new Chart(ctx, {
     type: 'bar',
     data: {
       datasets: [
@@ -29,13 +34,22 @@ function initChart(containerID) {
         x: {
           grid: { tickLength: 0, color: '#E2E8F0' },
           border: { color: '#E2E8F0', dash: [3, 3] },
-          ticks: { padding: 16, color: '#64748B', font: { size: 10 } },
+          ticks: {
+            padding: 16,
+            font: { size: 10 },
+            color: theme === 'light' ? '#64748B' : '#FCF7FF',
+          },
         },
         y: {
           beginAtZero: true,
           grid: { tickLength: 0, color: '#E2E8F0' },
-          border: { color: '#ffffff', dash: [3, 3] },
-          ticks: { padding: 16, color: '#64748B', font: { size: 10 }, stepSize: 200 },
+          border: { color: theme === 'light' ? '#FFFFFF' : '#484554', dash: [3, 3] },
+          ticks: {
+            padding: 16,
+            stepSize: 200,
+            font: { size: 10 },
+            color: theme === 'light' ? '#64748B' : '#FCF7FF',
+          },
         },
       },
       plugins: {

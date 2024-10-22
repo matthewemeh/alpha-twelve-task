@@ -59,6 +59,7 @@
 .dropdown-item {
   padding: 8px;
   flex: 1 0;
+  color: var(--pickled-bluewood);
 }
 
 #export {
@@ -79,6 +80,14 @@
 
 :is(#export, #more) path {
   stroke: var(--woodsmoke);
+}
+
+body[data-theme='dark'] .dropdown .content {
+  background-color: var(--tuna);
+}
+
+body[data-theme='dark'] .dropdown-item {
+  color: var(--white);
 }
 
 @media screen and (max-width: 600px) {

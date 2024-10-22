@@ -13,6 +13,6 @@ function initLastTheme() {
         checkbox.defaultChecked = true;
     }
 }
-window.onload = () => {
+window.addEventListener('load', () => {
     initLastTheme();
-};
+});

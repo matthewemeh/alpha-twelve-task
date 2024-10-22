@@ -193,10 +193,12 @@ function showEvent(name: string, speakers: string[], date: string, attendees: nu
 
 function expandAccordion(index: number) {
   const accordions = document.querySelectorAll<HTMLTableRowElement>('.accordion');
-  accordions.forEach(accordion => {
-    accordion.setAttribute('aria-expanded', 'false');
+  accordions.forEach((accordion, idx) => {
+    if (index !== idx) accordion.setAttribute('aria-expanded', 'false');
   });
-  accordions.item(index).setAttribute('aria-expanded', 'true');
+  const oldAriaExpanded = accordions.item(index).getAttribute('aria-expanded') === 'true';
+
+  accordions.item(index).setAttribute('aria-expanded', oldAriaExpanded ? 'false' : 'true');
 }
 
 function loadEvents() {
@@ -226,7 +228,9 @@ function loadEvents() {
               <p class="text">${name}</p>
               <div class="status">${status}</div>
             </div>
-            <div class="bottom">
+            <div class="bottom" onclick="showEvent('${name}', [${speakers.map(
+        speaker => `'${speaker}'`
+      )}], '${date}', ${attendees})">
               <p>${speakers[0]}</p>
               <p>${date}</p>
             </div>

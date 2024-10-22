@@ -15,6 +15,6 @@ function initLastTheme() {
   }
 }
 
-window.onload = () => {
+window.addEventListener('load', () => {
   initLastTheme();
-};
+});

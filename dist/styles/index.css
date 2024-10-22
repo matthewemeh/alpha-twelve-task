@@ -206,6 +206,7 @@ body[data-theme='dark'] .chart-container {
   main {
     padding: 0;
     width: 100%;
+    /* margin-top: -630px; */
   }
 
   .graphical-summary {
