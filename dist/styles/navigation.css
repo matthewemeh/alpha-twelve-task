@@ -260,6 +260,10 @@ body[data-theme='dark'] .nav-item {
   color: #ffffff;
 }
 
+body[data-theme='dark'] nav .close-btn {
+  background-color: #ffffff;
+}
+
 body[data-theme='dark'] .nav-item.selected {
   color: var(--white);
   background-color: var(--primary);
