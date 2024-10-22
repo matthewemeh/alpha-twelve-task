@@ -1,6 +1,6 @@
 .modal {
   position: fixed;
-  z-index: 1;
+  z-index: 99999;
   top: 50%;
   left: 50%;
   overflow: hidden;
@@ -114,7 +114,7 @@ body[data-theme='dark'] .modal footer {
 
 @media screen and (max-width: 600px) {
   .modal {
-    width: 100vw;
+    width: 95vw;
   }
 
   .modal footer,

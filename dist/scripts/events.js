@@ -199,9 +199,9 @@ function loadEvents() {
           <td>${speakers[0]}</td>
           <td><div class="status">${status}</div></td>
         </tr>
-        <tr class="accordion" aria-expanded="false" data-status="${status}" onclick="expandAccordion(${index})">
+        <tr class="accordion" aria-expanded="false" data-status="${status}">
           <td>
-            <div class="top">
+            <div class="top" onclick="expandAccordion(${index})">
               <button class="chevron">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M10.75 8.75L14.25 12L10.75 15.25" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
