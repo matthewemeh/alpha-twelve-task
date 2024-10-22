@@ -95,6 +95,10 @@ body[data-theme='dark'] .summary-item :is(.top, .bottom .label) {
     flex-direction: column;
   }
 
+  .summary-item {
+    height: 88px;
+  }
+
   .summary-item:hover {
     transform: none;
   }

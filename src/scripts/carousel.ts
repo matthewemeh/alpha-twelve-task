@@ -17,7 +17,7 @@ const slides: Slide[] = [
   {
     headline: 'Latest News & Updates',
     imgSrc: '/assets/carousel-images/slide-3.png',
-    news: 'Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.',
+    news: 'Senectus, deo ipsum dolor sit amet consectetur adipisicing elit. Consectetur architecto vitae ipsam vel deleniti odio earum doloribus. Facilis fugiat voluptatem asperiores deleniti illum, iure, voluptas dolorem.',
   },
 ];
 
@@ -103,7 +103,7 @@ function previousSlide() {
 
 function resetInterval() {
   clearInterval(carouselInterval);
-  carouselInterval = setInterval(() => nextSlide(), 5000);
+  carouselInterval = setInterval(nextSlide, 5000);
 }
 
 function loadCarousel(carouselID: string) {
@@ -143,5 +143,5 @@ function loadCarousel(carouselID: string) {
 window.addEventListener('load', () => {
   loadCarousel('news-carousel');
 
-  carouselInterval = setInterval(() => nextSlide(), 5000);
+  carouselInterval = setInterval(nextSlide, 5000);
 });

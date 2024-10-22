@@ -28,6 +28,7 @@ window.addEventListener('load', () => {
         speakers.some(speaker => speaker.toLowerCase().includes(value))
       );
     });
+    sort(lastSortFilter.sortName, lastSortFilter.sortOrder);
     loadPaginationNumbers();
     update(0);
   });

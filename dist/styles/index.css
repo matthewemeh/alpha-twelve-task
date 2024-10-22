@@ -22,9 +22,10 @@
   --blue-chalk: #f5ebff;
   --white-lilac: #f2f2f7;
   --athens-gray: #f1f5f9;
-  --progress-dark: #77b1ff;
   --success-dark: #65ddb5;
+  --progress-dark: #77b1ff;
   --pickled-bluewood: #334155;
+  --anti-flash-white: #f3f4f6;
 
   --default-transition: all 400ms ease-in-out;
 }
@@ -185,7 +186,7 @@ body[data-theme='dark'] .chart-container {
 
 @media screen and (max-width: 600px) {
   #main-container {
-    padding: 20px;
+    padding: 20px 20px 34px;
     flex-direction: column;
   }
 

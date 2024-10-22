@@ -202,6 +202,53 @@ nav[data-collapsed='true'] :is(#user-info .name, #user-info .email) {
   line-height: 16px;
 }
 
+.base-nav {
+  display: none;
+  height: 64px;
+  gap: 8px;
+  position: relative;
+  margin-inline: -20px;
+  padding-inline: 16px;
+  line-height: 20px;
+  align-items: center;
+  font-size: 0.875rem;
+  justify-content: space-between;
+  border-top: 1px solid var(--anti-flash-white);
+}
+
+.base-nav-item {
+  flex: 1 0;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 12px;
+  color: var(--lynch);
+}
+
+.base-nav-item path {
+  stroke: var(--primary-dark);
+}
+
+.base-nav-item.active {
+  color: var(--primary);
+}
+
+.base-nav-item.active path {
+  stroke: var(--lynch);
+}
+
+.base-nav-slider {
+  top: 0;
+  left: 16px;
+  width: 62.2px;
+  height: 4px;
+  position: absolute;
+  background-color: var(--primary);
+  transition: var(--default-transition);
+}
+
 /* dark mode styling */
 
 body[data-theme='dark'] nav {
@@ -232,6 +279,22 @@ body[data-theme='dark'] nav[data-collapsed='true'] .nav-item path {
 
 body[data-theme='dark'] .hamburger path {
   stroke: var(--white);
+}
+
+body[data-theme='dark'] .base-nav {
+  border-color: var(--primary-select);
+}
+
+body[data-theme='dark'] .base-nav-item {
+  color: var(--white);
+}
+
+body[data-theme='dark'] .base-nav-item.active {
+  color: var(--primary);
+}
+
+body[data-theme='dark'] .base-nav-item path {
+  stroke: currentColor;
 }
 
 @media screen and (max-width: 600px) {
@@ -299,5 +362,9 @@ body[data-theme='dark'] .hamburger path {
   #user-info {
     font-size: 0.75rem;
     padding-inline: 16px;
+  }
+
+  .base-nav {
+    display: flex;
   }
 }

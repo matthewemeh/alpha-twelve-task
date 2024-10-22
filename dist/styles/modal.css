@@ -3,9 +3,10 @@
   z-index: 99999;
   top: 50%;
   left: 50%;
-  overflow: hidden;
   transform: translate(-50%, -50%);
   width: 440px;
+  max-height: 100vh;
+  overflow-y: auto;
   height: fit-content;
   padding: 24px 24px 0;
   border-radius: 2px;

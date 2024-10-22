@@ -111,4 +111,9 @@ body[data-theme='dark'] .pagination-control-btn {
   .items-control > .text {
     display: none;
   }
+
+  .pagination {
+    height: fit-content;
+    margin-bottom: 24px;
+  }
 }

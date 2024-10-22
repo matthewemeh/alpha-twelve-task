@@ -6,6 +6,7 @@ interface Option {
 interface DropdownButton {
   id: string;
   title: string;
+  content?: string;
   options: Option[];
 }
 
@@ -34,6 +35,7 @@ function loadDropdowns() {
     {
       title: 'Date',
       id: 'date-filter',
+      content: "<div class='date-picker'></div>",
       options: [],
     },
     {
@@ -61,7 +63,28 @@ function loadDropdowns() {
     {
       title: 'Most Recent',
       id: 'recent-filter',
-      options: [],
+      options: [
+        {
+          label: 'Most Recent',
+          onclick: "sort('date','desc');updateDropdownText('recent-filter', 'Most Recent')",
+        },
+        {
+          label: 'Earliest',
+          onclick: "sort('date','asc');updateDropdownText('recent-filter', 'Earliest')",
+        },
+        {
+          label: 'Most Attendees',
+          onclick: "sort('attendees','desc');updateDropdownText('recent-filter', 'Attendees')",
+        },
+        {
+          label: 'Least Attendees',
+          onclick: "sort('attendees','asc');updateDropdownText('recent-filter', 'Attendees')",
+        },
+        {
+          label: 'Event Name',
+          onclick: "sort('name','asc');updateDropdownText('recent-filter', 'Event Name')",
+        },
+      ],
     },
     {
       title: '10 rows',
@@ -83,7 +106,7 @@ function loadDropdowns() {
     },
   ];
 
-  dropdownButtons.forEach(({ id, options, title }) => {
+  dropdownButtons.forEach(({ id, options, title, content }) => {
     const dropdown = document.getElementById(id) as HTMLDivElement;
     let optionButtons = '';
 
@@ -100,7 +123,7 @@ function loadDropdowns() {
           </svg>
         </span>
       </button>
-      <div class="content">${optionButtons}</div>
+      <div class="content">${content ?? optionButtons}</div>
     `;
   });
 }
