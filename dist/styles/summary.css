@@ -102,4 +102,8 @@ body[data-theme='dark'] .summary-item :is(.top, .bottom .label) {
   .summary-item:hover {
     transform: none;
   }
+
+  #summary-chart {
+    height: 240px !important;
+  }
 }
