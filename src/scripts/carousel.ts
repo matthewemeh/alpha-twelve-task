@@ -12,7 +12,7 @@ const slides: Slide[] = [
   {
     headline: 'Latest News & Updates',
     imgSrc: '/assets/carousel-images/slide-2.png',
-    news: 'Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.',
+    news: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur architecto vitae ipsam vel deleniti odio earum doloribus. Facilis fugiat voluptatem asperiores deleniti illum, iure, voluptas dolorem.',
   },
   {
     headline: 'Latest News & Updates',
@@ -21,7 +21,27 @@ const slides: Slide[] = [
   },
 ];
 
+function fadeInNews() {
+  const news = document.querySelector('.news') as HTMLParagraphElement;
+  const headline = document.querySelector('.headline') as HTMLParagraphElement;
+
+  setTimeout(() => {
+    removeClass(news, 'fade-out-y');
+    removeClass(headline, 'fade-out-y');
+  }, 1000);
+}
+
+function fadeOutNews() {
+  const news = document.querySelector('.news') as HTMLParagraphElement;
+  const headline = document.querySelector('.headline') as HTMLParagraphElement;
+
+  addClass(news, 'fade-out-y');
+  addClass(headline, 'fade-out-y');
+}
+
 function nextSlide() {
+  fadeOutNews();
+
   const reachedEnd = activeSlideIndex === slides.length - 1;
   if (reachedEnd) {
     scrollElement({ toLeft: true, target: '.slides' });
@@ -31,8 +51,10 @@ function nextSlide() {
 
   // update headline and news...
   activeSlideIndex = modulo(activeSlideIndex + 1, slides.length);
-  document.querySelector('.news')!.textContent = slides[activeSlideIndex].news;
-  document.querySelector('.headline')!.textContent = slides[activeSlideIndex].headline;
+  setTimeout(() => {
+    document.querySelector('.news')!.textContent = slides[activeSlideIndex].news;
+    document.querySelector('.headline')!.textContent = slides[activeSlideIndex].headline;
+  }, 500);
 
   // ...update active slide indicator...
   const lastActiveSlideIndicator = document.querySelector(
@@ -44,9 +66,13 @@ function nextSlide() {
     .querySelectorAll<HTMLButtonElement>('.slide-indicator')
     .item(activeSlideIndex);
   addClass(activeSlideIndicator, 'active');
+
+  fadeInNews();
 }
 
 function previousSlide() {
+  fadeOutNews();
+
   const reachedStart = activeSlideIndex === 0;
   if (reachedStart) {
     scrollElement({ toRight: true, target: '.slides' });
@@ -56,8 +82,10 @@ function previousSlide() {
 
   // update headline and news...
   activeSlideIndex = modulo(activeSlideIndex - 1, slides.length);
-  document.querySelector('.news')!.textContent = slides[activeSlideIndex].news;
-  document.querySelector('.headline')!.textContent = slides[activeSlideIndex].headline;
+  setTimeout(() => {
+    document.querySelector('.news')!.textContent = slides[activeSlideIndex].news;
+    document.querySelector('.headline')!.textContent = slides[activeSlideIndex].headline;
+  }, 500);
 
   // ...update active slide indicator...
   const lastActiveSlideIndicator = document.querySelector(
@@ -69,6 +97,8 @@ function previousSlide() {
     .querySelectorAll<HTMLButtonElement>('.slide-indicator')
     .item(activeSlideIndex);
   addClass(activeSlideIndicator, 'active');
+
+  fadeInNews();
 }
 
 function resetInterval() {
