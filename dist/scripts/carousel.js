@@ -1,5 +1,6 @@
 "use strict";
 let activeSlideIndex = 0;
+let carouselInterval;
 const slides = [
     {
         headline: 'Latest News & Updates',
@@ -53,6 +54,10 @@ function previousSlide() {
         .item(activeSlideIndex);
     addClass(activeSlideIndicator, 'active');
 }
+function resetInterval() {
+    clearInterval(carouselInterval);
+    carouselInterval = setInterval(() => nextSlide(), 5000);
+}
 function loadCarousel(carouselID) {
     const carousel = document.getElementById(carouselID);
     let slideIndicators = '';
@@ -71,14 +76,15 @@ function loadCarousel(carouselID) {
     </article>
   `;
     carousel.innerHTML += `
-    <button class="carousel-btn left" onclick="previousSlide()">
+    <button class="carousel-btn left" onclick="previousSlide();resetInterval()">
         <img src="./assets/icons/chevron-left-sm.svg" width="4" height="8" alt="" />
     </button>
-    <button class="carousel-btn right" onclick="nextSlide()">
+    <button class="carousel-btn right" onclick="nextSlide();resetInterval()">
         <img src="./assets/icons/chevron-right-sm.svg" width="4" height="8" alt="" />
     </button>
   `;
 }
 window.addEventListener('load', () => {
     loadCarousel('news-carousel');
+    carouselInterval = setInterval(() => nextSlide(), 5000);
 });

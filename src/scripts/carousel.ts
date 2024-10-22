@@ -1,4 +1,5 @@
 let activeSlideIndex = 0;
+let carouselInterval: number;
 
 type Slide = { imgSrc: string; headline: string; news: string };
 
@@ -70,6 +71,11 @@ function previousSlide() {
   addClass(activeSlideIndicator, 'active');
 }
 
+function resetInterval() {
+  clearInterval(carouselInterval);
+  carouselInterval = setInterval(() => nextSlide(), 5000);
+}
+
 function loadCarousel(carouselID: string) {
   const carousel = document.getElementById(carouselID) as HTMLDivElement;
   let slideIndicators = '';
@@ -95,10 +101,10 @@ function loadCarousel(carouselID: string) {
   `;
 
   carousel.innerHTML += `
-    <button class="carousel-btn left" onclick="previousSlide()">
+    <button class="carousel-btn left" onclick="previousSlide();resetInterval()">
         <img src="./assets/icons/chevron-left-sm.svg" width="4" height="8" alt="" />
     </button>
-    <button class="carousel-btn right" onclick="nextSlide()">
+    <button class="carousel-btn right" onclick="nextSlide();resetInterval()">
         <img src="./assets/icons/chevron-right-sm.svg" width="4" height="8" alt="" />
     </button>
   `;
@@ -106,4 +112,6 @@ function loadCarousel(carouselID: string) {
 
 window.addEventListener('load', () => {
   loadCarousel('news-carousel');
+
+  carouselInterval = setInterval(() => nextSlide(), 5000);
 });
