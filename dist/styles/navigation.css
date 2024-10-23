@@ -367,10 +367,6 @@ body[data-theme='dark'] .base-nav-item path {
     display: flex;
   }
 
-  .nav-item#dark-mode-toggle {
-    gap: 8px;
-  }
-
   .base-nav {
     display: flex;
   }

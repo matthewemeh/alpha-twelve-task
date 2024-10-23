@@ -2,6 +2,8 @@
   height: 36px;
   display: flex;
   row-gap: 8px;
+  box-sizing: content-box;
+  padding-bottom: 64px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
@@ -115,6 +117,7 @@ body[data-theme='dark'] .pagination-control-btn {
   }
 
   .pagination {
+    padding-bottom: 0;
     height: fit-content;
     margin-bottom: 24px;
   }

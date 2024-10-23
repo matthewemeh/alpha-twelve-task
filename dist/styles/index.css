@@ -32,6 +32,7 @@
 
 body {
   font-weight: 400;
+  overflow: hidden;
   transition: var(--default-transition);
 }
 
@@ -62,12 +63,13 @@ button {
 
 #main-container {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 main {
   width: 76.39%;
-  padding: 40px 0 64px 24px;
+  padding: 40px 0 0 24px;
   transition: width ease-in-out 400ms;
 }
 
@@ -188,7 +190,7 @@ body[data-theme='dark'] .chart-container {
 
 @media screen and (max-width: 600px) {
   #main-container {
-    padding: 20px 20px 34px;
+    padding: 64px 20px 34px;
     flex-direction: column;
   }
 
