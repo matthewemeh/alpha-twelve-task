@@ -258,6 +258,10 @@ body[data-theme='dark'] nav {
   background-color: var(--primary-dark);
 }
 
+body[data-theme='dark'] .nav-header {
+  border-color: transparent;
+}
+
 body[data-theme='dark'] .nav-item {
   color: #ffffff;
 }
@@ -349,6 +353,10 @@ body[data-theme='dark'] .base-nav-item path {
 
   nav[data-mobile-nav-opened='true'] .nav-links {
     left: 0;
+  }
+
+  .nav-item[data-count]:not([data-count='0']):after {
+    right: 0;
   }
 
   nav[data-mobile-nav-opened='true'] .close-btn {
