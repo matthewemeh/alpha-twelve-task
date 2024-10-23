@@ -194,6 +194,7 @@ nav[data-collapsed='true'] :is(#user-info .name, #user-info .email) {
 }
 
 .nav-item#dark-mode-toggle {
+  gap: 8px;
   height: 16px;
 }
 
