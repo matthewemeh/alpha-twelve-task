@@ -111,10 +111,6 @@ nav[data-collapsed='true'] .nav-item path {
   stroke: var(--primary-select);
 }
 
-.nav-item#toggle-collapse {
-  cursor: pointer;
-}
-
 nav[data-collapsed='true'] {
   width: 64px;
   padding-block: 16px;
@@ -262,10 +258,6 @@ body[data-theme='dark'] .nav-header {
   border-color: transparent;
 }
 
-body[data-theme='dark'] .nav-item {
-  color: #ffffff;
-}
-
 body[data-theme='dark'] nav .close-btn {
   background-color: #ffffff;
 }
@@ -279,7 +271,7 @@ body[data-theme='dark'] .nav-item#toggle-collapse path {
   stroke: #ffffff;
 }
 
-body[data-theme='dark'] :is(#user-info, #user-info .email) {
+body[data-theme='dark'] :is(.nav-item, #user-info .name, #user-info .email) {
   color: #ffffff;
 }
 
@@ -307,17 +299,42 @@ body[data-theme='dark'] .base-nav-item path {
   stroke: currentColor;
 }
 
-/* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
+/* ================ MEDIA QUERIES (TABLETS) ================= */
 
-@media screen and (max-width: 600px) {
-  .nav-item#toggle-collapse {
+@media screen and (max-width: 768px) {
+  nav[data-collapsed] {
+    width: 64px;
+  }
+
+  #full-logo,
+  .nav-item .text,
+  .nav-item#toggle-collapse,
+  #user-info :is(.name, .email),
+  .nav-item[data-count]:not([data-count='0']):after {
     display: none;
   }
 
+  nav[data-collapsed] #small-logo {
+    display: block;
+  }
+
+  .nav-item {
+    justify-content: center;
+  }
+}
+
+/* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
+
+@media screen and (max-width: 600px) {
   nav {
     height: 64px;
     border-color: transparent;
     background-color: transparent;
+  }
+
+  .nav-item .text,
+  #user-info :is(.name, .email) {
+    display: block;
   }
 
   .nav-links {
@@ -328,6 +345,10 @@ body[data-theme='dark'] .base-nav-item path {
     padding: 8px 20px 0;
     height: calc(100vh - 64px);
     background-color: #ffffff;
+  }
+
+  .nav-item {
+    justify-content: start;
   }
 
   .nav-header {
@@ -357,6 +378,7 @@ body[data-theme='dark'] .base-nav-item path {
 
   .nav-item[data-count]:not([data-count='0']):after {
     right: 0;
+    display: grid;
   }
 
   nav[data-mobile-nav-opened='true'] .close-btn {

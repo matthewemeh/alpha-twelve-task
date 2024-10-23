@@ -24,18 +24,17 @@ function scrollElement({
     return console.error(`Div container with target: '${target}' does not exist in the DOM`);
   }
 
-  const elementScrollWidth: number = element.scrollWidth;
-  const elementScrollHeight: number = element.scrollHeight;
+  const { scrollWidth, scrollHeight } = element;
   let scrollProps: { top?: number; left?: number; behavior?: globalThis.ScrollBehavior } = {};
 
   if (toTop) {
     scrollProps = { top: 0 };
   } else if (toBottom) {
-    scrollProps = { top: elementScrollHeight };
+    scrollProps = { top: scrollHeight };
   } else if (toLeft) {
     scrollProps = { left: 0 };
   } else if (toRight) {
-    scrollProps = { left: elementScrollWidth };
+    scrollProps = { left: scrollWidth };
   } else if (top && left) {
     scrollProps = { top, left };
   } else if (top) {

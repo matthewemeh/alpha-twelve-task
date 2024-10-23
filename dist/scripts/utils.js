@@ -12,20 +12,19 @@ function scrollElement({ top, left, delay, toTop, toLeft, target, toRight, toBot
     if (!element) {
         return console.error(`Div container with target: '${target}' does not exist in the DOM`);
     }
-    const elementScrollWidth = element.scrollWidth;
-    const elementScrollHeight = element.scrollHeight;
+    const { scrollWidth, scrollHeight } = element;
     let scrollProps = {};
     if (toTop) {
         scrollProps = { top: 0 };
     }
     else if (toBottom) {
-        scrollProps = { top: elementScrollHeight };
+        scrollProps = { top: scrollHeight };
     }
     else if (toLeft) {
         scrollProps = { left: 0 };
     }
     else if (toRight) {
-        scrollProps = { left: elementScrollWidth };
+        scrollProps = { left: scrollWidth };
     }
     else if (top && left) {
         scrollProps = { top, left };

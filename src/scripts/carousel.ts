@@ -6,17 +6,17 @@ type Slide = { imgSrc: string; headline: string; news: string };
 const slides: Slide[] = [
   {
     headline: 'Latest News & Updates',
-    imgSrc: '/assets/carousel-images/slide-1.png',
+    imgSrc: './assets/carousel-images/slide-1.png',
     news: 'Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.',
   },
   {
     headline: 'Latest News & Updates',
-    imgSrc: '/assets/carousel-images/slide-2.png',
+    imgSrc: './assets/carousel-images/slide-2.png',
     news: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur architecto vitae ipsam vel deleniti odio earum doloribus. Facilis fugiat voluptatem asperiores deleniti illum, iure, voluptas dolorem.',
   },
   {
     headline: 'Latest News & Updates',
-    imgSrc: '/assets/carousel-images/slide-3.png',
+    imgSrc: './assets/carousel-images/slide-3.png',
     news: 'Senectus, deo ipsum dolor sit amet consectetur adipisicing elit. Consectetur architecto vitae ipsam vel deleniti odio earum doloribus. Facilis fugiat voluptatem asperiores deleniti illum, iure, voluptas dolorem.',
   },
 ];

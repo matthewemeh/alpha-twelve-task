@@ -51,12 +51,10 @@ function loadDropdowns() {
       id: 'name-filter',
       options: [
         { label: 'All', onclick: 'resetFilter()' },
-        ...[...new Set(filteredEvents.map(({ speakers: [mainSpeaker] }) => mainSpeaker))].map(
-          speaker => ({
-            label: speaker,
-            onclick: `filter('speakers','${speaker}')`,
-          })
-        ),
+        ...[...new Set(events.map(({ speakers: [mainSpeaker] }) => mainSpeaker))].map(speaker => ({
+          label: speaker,
+          onclick: `filter('speakers','${speaker}')`,
+        })),
       ],
     },
     {

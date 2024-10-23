@@ -107,7 +107,3 @@ window.addEventListener('load', () => {
   initBaseNav();
   moveSlider(activeBaseNavButtonIndex);
 });
-
-window.addEventListener('resize', () => {
-  moveSlider(activeBaseNavButtonIndex);
-});

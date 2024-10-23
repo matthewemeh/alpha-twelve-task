@@ -11,6 +11,7 @@
   padding: 24px 24px 0;
   border-radius: 2px;
   background-color: #ffffff;
+  color: var(--pickled-bluewood);
   box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.15);
 }
 
@@ -28,7 +29,6 @@
   font-weight: 600;
   line-height: 28px;
   font-size: 1.125rem;
-  color: var(--pickled-bluewood);
 }
 
 .event-date {
@@ -42,7 +42,6 @@
   line-height: 20px;
   font-size: 0.875rem;
   padding-block: 24px;
-  color: var(--pickled-bluewood);
 }
 
 .event-content {
@@ -73,7 +72,6 @@
 .event-info {
   line-height: 20px;
   font-size: 0.875rem;
-  color: var(--pickled-bluewood);
 }
 
 .modal footer {
@@ -97,19 +95,16 @@
 /* ================ DARK MODE STYLING ================= */
 
 body[data-theme='dark'] .modal {
-  background-color: var(--primary-dark);
-}
-
-body[data-theme='dark'] .event-info {
   color: var(--white);
+  background-color: var(--primary-dark);
 }
 
 body[data-theme='dark'] .speaker-avatar img {
   border-color: var(--primary-dark);
 }
 
-body[data-theme='dark'] :is(.event-name, .event-date, .event-description) {
-  color: var(--white);
+body[data-theme='dark'] .event-date {
+  color: inherit;
 }
 
 body[data-theme='dark'] .modal footer {

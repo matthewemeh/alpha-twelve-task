@@ -87,10 +87,6 @@ body[data-theme='dark'] #items-length-filter.dropdown path {
   stroke: var(--blue-chalk);
 }
 
-body[data-theme='dark'] #items-length-filter.dropdown .text {
-  color: #ffffff;
-}
-
 body[data-theme='dark'] .pagination-control-btn:disabled {
   opacity: 0.6;
   background-color: var(--primary-dark);
@@ -100,7 +96,7 @@ body[data-theme='dark'] .pagination-control-btn path {
   stroke: var(--primary);
 }
 
-body[data-theme='dark'] .pagination-control-number {
+body[data-theme='dark'] :is(.pagination-control-number, #items-length-filter.dropdown .text) {
   color: #ffffff;
 }
 

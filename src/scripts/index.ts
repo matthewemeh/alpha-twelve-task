@@ -1,3 +1,5 @@
+const MOBILE_WIDTH = 600;
+
 function showOverlay() {
   const overlay = document.querySelector('.overlay') as HTMLDivElement;
   removeClass(overlay, 'invisible');

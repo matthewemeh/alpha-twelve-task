@@ -2,6 +2,7 @@
   height: 36px;
   display: flex;
   row-gap: 10px;
+  flex-wrap: wrap;
   align-items: center;
   margin-bottom: 12px;
   justify-content: space-between;
@@ -12,6 +13,7 @@
   height: inherit;
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .searchbar {
@@ -72,7 +74,7 @@
 
 /* ================ DARK MODE STYLING ================= */
 
-body[data-theme='dark'] .searchbar input {
+body[data-theme='dark'] :is(.searchbar input, .sort) {
   color: var(--white);
 }
 
@@ -84,8 +86,10 @@ body[data-theme='dark'] .results {
   color: #ffffff;
 }
 
-body[data-theme='dark'] .sort {
-  color: var(--white);
+@media screen and (max-width: 1380px) {
+  .toolbar {
+    height: fit-content;
+  }
 }
 
 /* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
@@ -113,11 +117,8 @@ body[data-theme='dark'] .sort {
     height: 36px;
   }
 
+  .sort,
   .results {
-    justify-content: start;
-  }
-
-  .sort {
     justify-content: start;
   }
 

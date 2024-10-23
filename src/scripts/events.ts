@@ -214,7 +214,7 @@ function resetFilter() {
 
 function filter(field: keyof EventType, value: string) {
   filteredEvents = events.filter(event => {
-    const eventKeyValue = event[field];
+    const eventKeyValue: string | number | string[] = event[field];
     if (Array.isArray(eventKeyValue)) {
       return eventKeyValue.includes(value);
     }

@@ -186,6 +186,14 @@ body[data-theme='dark'] .chart-container {
   background-color: var(--primary-dark);
 }
 
+/* ================ MEDIA QUERIES (SMALL LAPTOPS) ================= */
+
+@media screen and (max-width: 1024px) {
+  main {
+    width: 82%;
+  }
+}
+
 /* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
 
 @media screen and (max-width: 600px) {

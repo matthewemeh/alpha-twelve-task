@@ -1,4 +1,5 @@
 "use strict";
+const MOBILE_WIDTH = 600;
 function showOverlay() {
     const overlay = document.querySelector('.overlay');
     removeClass(overlay, 'invisible');

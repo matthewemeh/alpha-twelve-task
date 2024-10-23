@@ -23,7 +23,7 @@ function initChart(containerID) {
   };
 
   const { availWidth } = window.screen;
-  const isMobileView = availWidth <= 600;
+  const isMobileView = availWidth <= MOBILE_WIDTH;
   barChart = new Chart(ctx, {
     type: 'bar',
     data: {

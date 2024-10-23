@@ -27,18 +27,21 @@ function updateSelected() {
 }
 
 function update(index: number) {
+  // this function updates the events table and pagination based on the currently viewed pagination index
   startIndex = index;
   updateSelected();
   loadEvents();
 }
 
 function nextPage() {
+  // goes to next set of paginated items
   startIndex++;
   updateSelected();
   loadEvents();
 }
 
 function previousPage() {
+  // goes to previous set of paginated items
   startIndex--;
   updateSelected();
   loadEvents();
