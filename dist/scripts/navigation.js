@@ -73,7 +73,7 @@ function initBaseNav() {
     baseNavButtons.forEach(({ icon, title }, index) => {
         baseNav.innerHTML += `
       <button onclick="moveSlider(${index})" class="base-nav-item">
-        ${icon}
+        <span class="icon">${icon}</span>
         <span>${title}</span>
       </button>
     `;

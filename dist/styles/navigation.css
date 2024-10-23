@@ -200,12 +200,20 @@ nav[data-collapsed='true'] :is(#user-info .name, #user-info .email) {
   line-height: 16px;
 }
 
-.base-nav {
+.base-nav-container {
+  bottom: 0;
   display: none;
+  position: sticky;
+  padding-bottom: 34px;
+  margin-inline: -20px;
+  background-color: #ffffff;
+}
+
+.base-nav {
+  display: flex;
   height: 64px;
   gap: 8px;
   position: relative;
-  margin-inline: -20px;
   padding-inline: 16px;
   line-height: 20px;
   align-items: center;
@@ -223,6 +231,11 @@ nav[data-collapsed='true'] :is(#user-info .name, #user-info .email) {
   gap: 8px;
   padding-top: 12px;
   color: var(--lynch);
+}
+
+.base-nav-item .icon {
+  width: 24px;
+  height: 24px;
 }
 
 .base-nav-item path {
@@ -281,6 +294,10 @@ body[data-theme='dark'] nav[data-collapsed='true'] .nav-item path {
 
 body[data-theme='dark'] .hamburger path {
   stroke: var(--white);
+}
+
+body[data-theme='dark'] .base-nav-container {
+  background-color: var(--tuna);
 }
 
 body[data-theme='dark'] .base-nav {
@@ -388,7 +405,7 @@ body[data-theme='dark'] .base-nav-item path {
     display: flex;
   }
 
-  .base-nav {
-    display: flex;
+  .base-nav-container {
+    display: block;
   }
 }
