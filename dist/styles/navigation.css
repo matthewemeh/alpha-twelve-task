@@ -377,7 +377,6 @@ body[data-theme='dark'] .base-nav-item path {
   }
 
   .nav-item[data-count]:not([data-count='0']):after {
-    right: 0;
     display: grid;
   }
 
