@@ -167,7 +167,7 @@ nav[data-collapsed='true'] .nav-item {
   grid-template-rows: 16px 16px;
   grid-template-columns: 32px 1fr;
   padding: 8px 16px 8px 8px;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   line-height: 16px;
   color: var(--pickled-bluewood);
 }
@@ -196,6 +196,7 @@ nav[data-collapsed='true'] :is(#user-info .name, #user-info .email) {
 .nav-item#dark-mode-toggle {
   gap: 8px;
   height: 16px;
+  padding-block: 0;
 }
 
 .nav-item#dark-mode-toggle .text {
@@ -367,7 +368,6 @@ body[data-theme='dark'] .base-nav-item path {
   }
 
   #user-info {
-    font-size: 0.75rem;
     padding-inline: 16px;
   }
 
