@@ -5,8 +5,8 @@ nav {
   padding: 8px;
   width: 16.67%;
   height: 100vh;
-  position: sticky;
   top: 0;
+  position: sticky;
   z-index: 9999;
   overflow-y: auto;
   overflow-x: hidden;
