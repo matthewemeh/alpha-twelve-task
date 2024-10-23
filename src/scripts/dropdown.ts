@@ -10,19 +10,18 @@ interface DropdownButton {
   options: Option[];
 }
 
-function toggleDropdown(dropdownID: string) {
-  closeAllDropdowns(dropdownID);
-
-  const dropdown = document.getElementById(dropdownID)!;
-  const oldAriaValue = dropdown.ariaExpanded;
-  dropdown.ariaExpanded = oldAriaValue === 'true' ? 'false' : 'true';
+function openDropdown(dropdownID: string) {
+  closeAllDropdowns();
+  document.getElementById(dropdownID)!.ariaExpanded = 'true';
 }
 
-function closeAllDropdowns(exceptDropdownID?: string) {
+function closeDropdown(dropdownID: string) {
+  document.getElementById(dropdownID)!.ariaExpanded = 'false';
+}
+
+function closeAllDropdowns() {
   document.querySelectorAll('.dropdown').forEach(dropdown => {
-    if (dropdown.id !== exceptDropdownID) {
-      dropdown.ariaExpanded = 'false';
-    }
+    dropdown.ariaExpanded = 'false';
   });
 }
 
@@ -111,11 +110,11 @@ function loadDropdowns() {
     let optionButtons = '';
 
     options.forEach(({ label, onclick }) => {
-      optionButtons += `<button class="dropdown-item" onclick="${onclick};closeAllDropdowns()">${label}</button>`;
+      optionButtons += `<button class="dropdown-item" onclick="${onclick};closeDropdown('${id}');this.blur()">${label}</button>`;
     });
 
     dropdown.innerHTML = `
-      <button class="btn" onclick="toggleDropdown('${id}')">
+      <button class="btn" onclick="openDropdown('${id}')">
         <span class="text">${title}</span>
         <span class="caret">
           <svg width="6" height="5" fill="none" viewBox="0 0 6 5" xmlns="http://www.w3.org/2000/svg">

@@ -112,7 +112,3 @@ function initChart(containerID) {
 window.addEventListener('load', () => {
   initChart('summary-chart');
 });
-
-window.addEventListener('resize', () => {
-  initChart('summary-chart');
-});
