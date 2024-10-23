@@ -83,6 +83,8 @@
   stroke: var(--woodsmoke);
 }
 
+/* ================ DARK MODE STYLING ================= */
+
 body[data-theme='dark'] .dropdown .content {
   background-color: var(--tuna);
 }
@@ -90,6 +92,8 @@ body[data-theme='dark'] .dropdown .content {
 body[data-theme='dark'] .dropdown-item {
   color: var(--white);
 }
+
+/* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
 
 @media screen and (max-width: 600px) {
   .dropdown {

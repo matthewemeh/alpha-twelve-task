@@ -76,7 +76,7 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 65%);
 }
 
-.caption .headline {
+.caption :is(.headline, .news) {
   top: 0;
   font-weight: 600;
   position: relative;
@@ -84,9 +84,7 @@
 }
 
 .caption .news {
-  top: 0;
-  position: relative;
-  transition: var(--default-transition);
+  font-weight: 400;
 }
 
 .fade-out-y {
@@ -94,6 +92,8 @@
   visibility: hidden;
   top: 4px !important;
 }
+
+/* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
 
 @media screen and (max-width: 600px) {
   #news-carousel.carousel {

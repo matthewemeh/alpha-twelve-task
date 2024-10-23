@@ -249,7 +249,7 @@ nav[data-collapsed='true'] :is(#user-info .name, #user-info .email) {
   transition: var(--default-transition);
 }
 
-/* dark mode styling */
+/* ================ DARK MODE STYLING ================= */
 
 body[data-theme='dark'] nav {
   border-color: var(--primary-dark);
@@ -300,6 +300,8 @@ body[data-theme='dark'] .base-nav-item.active {
 body[data-theme='dark'] .base-nav-item path {
   stroke: currentColor;
 }
+
+/* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
 
 @media screen and (max-width: 600px) {
   .nav-item#toggle-collapse {

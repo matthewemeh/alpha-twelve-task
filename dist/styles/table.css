@@ -174,7 +174,7 @@ td {
   padding-inline: 16px;
 }
 
-/* dark mode styling */
+/* ================ DARK MODE STYLING ================= */
 
 body[data-theme='dark'] #events thead {
   background-color: var(--primary-select-dark);
@@ -225,6 +225,8 @@ body[data-theme='dark'] #events tr.accordion[aria-expanded='true'] .bottom {
   background-color: var(--tuna);
   border-color: var(--primary-select);
 }
+
+/* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
 
 @media screen and (max-width: 600px) {
   .events-dashboard {

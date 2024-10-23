@@ -91,7 +91,7 @@
   justify-content: end;
 }
 
-/* dark mode styling */
+/* ================ DARK MODE STYLING ================= */
 
 body[data-theme='dark'] .modal {
   background-color: var(--primary-dark);
@@ -112,6 +112,8 @@ body[data-theme='dark'] :is(.event-name, .event-date, .event-description) {
 body[data-theme='dark'] .modal footer {
   background-color: var(--primary-select);
 }
+
+/* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
 
 @media screen and (max-width: 600px) {
   .modal {

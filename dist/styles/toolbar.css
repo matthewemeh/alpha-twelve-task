@@ -70,7 +70,7 @@
   border: 1px solid var(--zumthor);
 }
 
-/* dark mode styling */
+/* ================ DARK MODE STYLING ================= */
 
 body[data-theme='dark'] .searchbar input {
   color: var(--white);
@@ -87,6 +87,8 @@ body[data-theme='dark'] .results {
 body[data-theme='dark'] .sort {
   color: var(--white);
 }
+
+/* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
 
 @media screen and (max-width: 600px) {
   .toolbar {

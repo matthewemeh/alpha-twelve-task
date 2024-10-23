@@ -79,7 +79,7 @@
   stroke: var(--cadet-grey);
 }
 
-/* dark mode styling */
+/* ================ DARK MODE STYLING ================= */
 
 body[data-theme='dark'] #items-length-filter.dropdown path {
   stroke: var(--blue-chalk);
@@ -106,6 +106,8 @@ body[data-theme='dark'] .pagination-control-btn {
   border-color: var(--primary-dark);
   background-color: var(--primary-dark);
 }
+
+/* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
 
 @media screen and (max-width: 600px) {
   .items-control > .text {

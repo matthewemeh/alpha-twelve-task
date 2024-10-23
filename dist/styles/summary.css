@@ -76,7 +76,7 @@
   color: var(--radical-red);
 }
 
-/* dark mode styling */
+/* ================ DARK MODE STYLING ================= */
 
 body[data-theme='dark'] .summary-item {
   color: #ffffff;
@@ -87,6 +87,8 @@ body[data-theme='dark'] .summary-item {
 body[data-theme='dark'] .summary-item :is(.top, .bottom .label) {
   color: inherit;
 }
+
+/* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
 
 @media screen and (max-width: 600px) {
   .summary {

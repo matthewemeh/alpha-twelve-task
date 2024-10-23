@@ -157,7 +157,7 @@ main {
   scrollbar-width: none; /* Firefox */
 }
 
-/* dark mode styling */
+/* ================ DARK MODE STYLING ================= */
 
 body[data-theme='dark'] {
   color: #ffffff;
@@ -184,6 +184,8 @@ body[data-theme='dark'] .chart-container {
   background-color: var(--primary-dark);
 }
 
+/* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
+
 @media screen and (max-width: 600px) {
   #main-container {
     padding: 20px 20px 34px;
@@ -208,7 +210,6 @@ body[data-theme='dark'] .chart-container {
   main {
     padding: 0;
     width: 100%;
-    /* margin-top: -630px; */
   }
 
   .graphical-summary {

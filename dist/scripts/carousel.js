@@ -32,6 +32,30 @@ function fadeOutNews() {
     addClass(news, 'fade-out-y');
     addClass(headline, 'fade-out-y');
 }
+function goToSlide(index) {
+    fadeOutNews();
+    const scrollLeft = index < activeSlideIndex;
+    const scrollRight = index > activeSlideIndex;
+    const slideDifference = Math.abs(index - activeSlideIndex);
+    if (scrollLeft) {
+        scrollItems('previous', '.slides', slideDifference);
+    }
+    else if (scrollRight) {
+        scrollItems('next', '.slides', slideDifference);
+    }
+    activeSlideIndex = index;
+    setTimeout(() => {
+        document.querySelector('.news').textContent = slides[activeSlideIndex].news;
+        document.querySelector('.headline').textContent = slides[activeSlideIndex].headline;
+    }, 500);
+    const lastActiveSlideIndicator = document.querySelector('.slide-indicator.active');
+    removeClass(lastActiveSlideIndicator, 'active');
+    const activeSlideIndicator = document
+        .querySelectorAll('.slide-indicator')
+        .item(activeSlideIndex);
+    addClass(activeSlideIndicator, 'active');
+    fadeInNews();
+}
 function nextSlide() {
     fadeOutNews();
     const reachedEnd = activeSlideIndex === slides.length - 1;
@@ -85,7 +109,7 @@ function loadCarousel(carouselID) {
     let slideIndicators = '';
     let carouselItems = '';
     slides.forEach(({ imgSrc }, index) => {
-        slideIndicators += `<button class="slide-indicator ${index === 0 && 'active'}"></button>`;
+        slideIndicators += `<button onclick="goToSlide(${index});resetInterval()" class="slide-indicator ${index === 0 && 'active'}"></button>`;
         carouselItems += `<div class="carousel-item" style="background: center/cover no-repeat url(${imgSrc})"></div>`;
     });
     carousel.innerHTML += `<div class="slides no-scrollbar">${carouselItems}</div>`;

@@ -15,6 +15,7 @@ function scrollElement({
   target,
   toRight,
   toBottom,
+  scrollSlides = 1,
   behavior = 'smooth',
 }: ScrollElementProps) {
   let element: HTMLElement | null =
@@ -44,13 +45,23 @@ function scrollElement({
     scrollProps = { left };
   }
 
-  if (delay) setTimeout(() => element?.scrollTo({ ...scrollProps, behavior }), delay);
-  else element.scrollTo({ ...scrollProps, behavior });
+  if (delay)
+    setTimeout(() => {
+      for (let i = 0; i < scrollSlides; i++) {
+        element?.scrollTo({ ...scrollProps, behavior });
+      }
+    }, delay);
+  else {
+    for (let i = 0; i < scrollSlides; i++) {
+      element.scrollTo({ ...scrollProps, behavior });
+    }
+  }
 }
 
 function scrollItems(
   direction: 'next' | 'previous',
   target: string | HTMLElement | null,
+  scrollSlides?: number,
   xMovement?: number
 ) {
   let container: HTMLElement | null =
@@ -63,7 +74,7 @@ function scrollItems(
   const containerWidth: number = xMovement || container.clientWidth;
   const newScrollLeft: number =
     direction === 'next' ? currentScrollLeft + containerWidth : currentScrollLeft - containerWidth;
-  scrollElement({ target: container, left: newScrollLeft });
+  scrollElement({ target: container, left: newScrollLeft, scrollSlides });
 }
 
 function modulo(num: number, mod: number): number {
