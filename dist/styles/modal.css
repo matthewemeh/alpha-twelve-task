@@ -59,6 +59,9 @@
 .speaker-avatar {
   width: 32px;
   height: 32px;
+}
+
+.speaker-avatar img {
   border-radius: 50%;
   border: 2px solid #ffffff;
 }
@@ -101,7 +104,7 @@ body[data-theme='dark'] .event-info {
   color: var(--white);
 }
 
-body[data-theme='dark'] .speaker-avatar {
+body[data-theme='dark'] .speaker-avatar img {
   border-color: var(--primary-dark);
 }
 
