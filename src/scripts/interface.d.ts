@@ -4,6 +4,5 @@ interface ScrollElementProps extends ScrollToOptions {
   toLeft?: boolean;
   toRight?: boolean;
   toBottom?: boolean;
-  scrollSlides?: number;
   target: string | HTMLElement | null;
 }

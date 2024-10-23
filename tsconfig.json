@@ -29,7 +29,7 @@
     "noUnusedParameters": true,
     "allowUnusedLabels": false,
     "allowUnreachableCode": false,
-    "exactOptionalPropertyTypes": false,
+    "exactOptionalPropertyTypes": true,
     "noFallthroughCasesInSwitch": true,
     "strictPropertyInitialization": true,
     "noPropertyAccessFromIndexSignature": true
