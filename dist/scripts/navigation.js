@@ -2,6 +2,7 @@
 let activeBaseNavButtonIndex = 0;
 const baseNavButtons = [
     {
+        relatedSideBarID: 'home',
         title: 'Home',
         icon: `
       <svg width="20" height="20" fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -10,6 +11,7 @@ const baseNavButtons = [
       </svg>`,
     },
     {
+        relatedSideBarID: 'events-link',
         title: 'Events',
         icon: `
       <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,6 +21,7 @@ const baseNavButtons = [
       </svg>`,
     },
     {
+        relatedSideBarID: 'speakers',
         title: 'Speakers',
         icon: `
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,6 +32,7 @@ const baseNavButtons = [
     `,
     },
     {
+        relatedSideBarID: 'reports',
         title: 'Reports',
         icon: `
       <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -38,6 +42,7 @@ const baseNavButtons = [
     `,
     },
     {
+        relatedSideBarID: '',
         title: 'Profile',
         icon: `
       <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,14 +70,13 @@ function highlightNavLink(id) {
     });
     const currentActiveNavLink = document.getElementById(id);
     addClass(currentActiveNavLink, 'selected');
-    closeMobileNav();
 }
 function initBaseNav() {
     const baseNav = document.querySelector('.base-nav');
     baseNav.innerHTML += `<div class="base-nav-slider"></div>`;
-    baseNavButtons.forEach(({ icon, title }, index) => {
+    baseNavButtons.forEach(({ icon, title, relatedSideBarID }, index) => {
         baseNav.innerHTML += `
-      <button onclick="moveSlider(${index})" class="base-nav-item">
+      <button onclick="moveSlider(${index});highlightNavLink('${relatedSideBarID}')" class="base-nav-item">
         <span class="icon">${icon}</span>
         <span>${title}</span>
       </button>
