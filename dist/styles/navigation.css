@@ -321,7 +321,7 @@ body[data-theme='dark'] .base-nav-item path {
     left: 100%;
     position: fixed;
     width: 100vw;
-    padding-top: 8px;
+    padding: 8px 20px 0;
     height: calc(100vh - 64px);
     background-color: #ffffff;
   }
@@ -359,16 +359,8 @@ body[data-theme='dark'] .base-nav-item path {
     display: flex;
   }
 
-  .nav-item {
-    margin-inline: 16px;
-  }
-
   .nav-item#dark-mode-toggle {
     gap: 8px;
-  }
-
-  #user-info {
-    padding-inline: 16px;
   }
 
   .base-nav {
